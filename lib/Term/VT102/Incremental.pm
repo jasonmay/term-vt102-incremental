@@ -21,7 +21,7 @@ use Term::VT102;
 =head1 DESCRIPTION
 
 Term::VT102::Incremental is a thin wrapper around L<Term::VT102> with a few
-internal differences.
+internal differences. This module takes the B<exact same arguments in the constructor> as L<Term::VT102>, but has one extra method: C<get_increment>.
 
 =cut
 
