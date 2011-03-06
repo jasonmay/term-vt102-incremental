@@ -1,6 +1,8 @@
 Revision history for Term-VT102-Incremental
 
 {{$NEXT}}
+
+0.02  2011-03-06
     - FIX: '0's don't get returned in the first
            increment. Added some logic to resolve
            this.
