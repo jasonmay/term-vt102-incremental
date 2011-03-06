@@ -138,7 +138,7 @@ sub get_increment {
             my $prev = $screen->[$row]->[$col];
             $screen->[$row]->[$col] = {%data}; # clone
 
-            if ($prev) {
+            if (scalar keys %$prev) {
                 foreach my $attr (keys %data) {
 
                     delete $data{$attr}
