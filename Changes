@@ -1,8 +1,12 @@
 Revision history for Term-VT102-Incremental
 
 {{$NEXT}}
+    - FIX: '0's don't get returned in the first
+           increment. Added some logic to resolve
+           this.
     - Tests
     - Documentation tweaks
+    - Dist::Zilla tweaks
 
 0.01  2011-02-13
     - Initial release
