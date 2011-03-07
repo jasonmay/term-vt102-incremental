@@ -1,6 +1,8 @@
 Revision history for Term-VT102-Incremental
 
 {{$NEXT}}
+
+0.03  2011-03-07
     - Re-add lost deps from a toolchain overhaul
 
 0.02  2011-03-06
