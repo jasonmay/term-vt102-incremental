@@ -1,6 +1,7 @@
 Revision history for Term-VT102-Incremental
 
 {{$NEXT}}
+    - Re-add lost deps from a toolchain overhaul
 
 0.02  2011-03-06
     - FIX: '0's don't get returned in the first
