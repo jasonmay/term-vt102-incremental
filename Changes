@@ -1,6 +1,8 @@
 Revision history for Term-VT102-Incremental
 
 {{$NEXT}}
+    - Make _screen lazy which otherwise breaks
+      when run with Moose 1.99+
 
 0.03  2011-03-07
     - Re-add lost deps from a toolchain overhaul

@@ -73,7 +73,7 @@ has _screen => (
 );
 
 around BUILDARGS => sub {
-    my $orig = shift;
+    my $orig  = shift;
     my $class = shift;
 
     my @vt_args  = @_;
