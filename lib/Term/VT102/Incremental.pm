@@ -59,6 +59,7 @@ has vt => (
 has _screen => (
     is        => 'ro',
     isa       => 'ArrayRef[ArrayRef[HashRef]]',
+    lazy      => 1,
     default   => sub {
         my $self = shift;
         my ($rows, $cols) = ($self->rows, $self->cols);
