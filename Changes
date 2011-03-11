@@ -1,6 +1,8 @@
 Revision history for Term-VT102-Incremental
 
 {{$NEXT}}
+
+0.04  2011-03-10
     - Make _screen lazy which otherwise breaks
       when run with Moose 1.99+
 
