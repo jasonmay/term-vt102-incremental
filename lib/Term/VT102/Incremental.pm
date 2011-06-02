@@ -72,6 +72,14 @@ has _screen => (
     },
 );
 
+has rows_updated => (
+    is => 'ro',
+    isa => 'ArrayRef[Bool]',
+    lazy => 1,
+    clearer => '_clear_rows_updated',
+    default => sub { [ (0) x shift->rows ] },
+);
+
 around BUILDARGS => sub {
     my $orig  = shift;
     my $class = shift;
@@ -82,6 +90,17 @@ around BUILDARGS => sub {
 
     return $class->$orig(vt => $vt);
 };
+
+sub BUILD {
+    my $self = shift;
+    $self->vt->callback_set(
+        'ROWCHANGE', sub {
+            my (undef, undef, $row) = @_;
+
+            $self->rows_updated->[$_[2]-1] = 1;
+        }
+    );
+}
 
 =method get_increment
 
@@ -123,6 +142,7 @@ sub get_increment {
     my %updates;
     my @data;
     foreach my $row (0 .. $self->rows-1) {
+        next unless $self->rows_updated->[$row];
         my $line = $vt->row_plaintext($row + 1);
         my $att = $vt->row_attr($row + 1);
 
@@ -151,6 +171,7 @@ sub get_increment {
         }
     }
 
+    $self->_clear_rows_updated;
     return \@data;
 }
 
