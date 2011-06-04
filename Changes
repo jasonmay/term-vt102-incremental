@@ -1,6 +1,8 @@
 Revision history for Term-VT102-Incremental
 
 {{$NEXT}}
+
+0.05  2011-06-04
     - Overrideable 'vt_class' method
     - Only iterate through changed rows for
       incremental updates
