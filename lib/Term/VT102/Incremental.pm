@@ -50,6 +50,8 @@ See L<Term::VT102>'s C<cols>.
 
 =cut
 
+use constant vt_class => 'Term::VT102';
+
 has vt => (
     is      => 'ro',
     isa     => 'Term::VT102',
@@ -86,7 +88,7 @@ around BUILDARGS => sub {
 
     my @vt_args  = @_;
 
-    my $vt = Term::VT102->new(@vt_args);
+    my $vt = $class->vt_class->new(@vt_args);
 
     return $class->$orig(vt => $vt);
 };
