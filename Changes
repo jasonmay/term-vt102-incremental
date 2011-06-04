@@ -1,6 +1,9 @@
 Revision history for Term-VT102-Incremental
 
 {{$NEXT}}
+    - Overrideable 'vt_class' method
+    - Only iterate through changed rows for
+      incremental updates
 
 0.04  2011-03-10
     - Make _screen lazy which otherwise breaks

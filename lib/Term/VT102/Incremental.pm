@@ -30,23 +30,24 @@ internal differences. This module takes the B<exact same arguments in the constr
 Intermal L<Term::VT102> object. You can make any configurations that
 any other normal L<Term::VT102> object would let you make.
 
-=cut
-
 =method process
 
 See L<Term::VT102>'s C<process>.
-
-=cut
 
 =method rows
 
 See L<Term::VT102>'s C<rows>.
 
-=cut
-
 =method cols
 
 See L<Term::VT102>'s C<cols>.
+
+=method vt_class
+
+Returns the name of the VT class that the internal
+VT object will use when instantiated. Currently defaults
+too L<Term::VT102> but can be overridden by extending this
+class.
 
 =cut
 
