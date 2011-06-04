@@ -93,13 +93,24 @@ around BUILDARGS => sub {
 
 sub BUILD {
     my $self = shift;
+
+    my $rows_updated = $self->rows_updated;
+    my $rows = $self->rows - 1;
+
     $self->vt->callback_set(
         'ROWCHANGE', sub {
             my (undef, undef, $row) = @_;
-
-            $self->rows_updated->[$_[2]-1] = 1;
+            $self->rows_updated->[$row - 1] = 1;
         }
     );
+    for my $cb (qw/SCROLL_DOWN SCROLL_UP/) {
+        $self->vt->callback_set(
+            $cb, sub {
+                my (undef, undef, $row) = @_;
+                @{$self->rows_updated}[$_] = 1 for $row-1 .. $rows;
+            }
+        );
+    }
 }
 
 =method get_increment
