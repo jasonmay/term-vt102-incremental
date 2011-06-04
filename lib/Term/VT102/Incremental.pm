@@ -94,6 +94,10 @@ around BUILDARGS => sub {
     return $class->$orig(vt => $vt);
 };
 
+=for Pod::Coverage BUILD
+
+=cut
+
 sub BUILD {
     my $self = shift;
 
